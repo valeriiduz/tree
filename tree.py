@@ -11,9 +11,10 @@ class Tree:
         '''
         Insert file to the data tree
         '''
-        hashName = hashlib.sha256(bytes(int(random.random()*100000))).hexdigest()
-        hashDir = "fda/fadf"
-        dirPath = os.path.join(self.pathToTree, hashDir)
+        hashDir = hashName = hashlib.sha256(bytes(int(random.random()*100000))).hexdigest()
+        for i in range(0, 98, 3): hashDir = hashDir[:i] + '/' + hashDir[i:]
+        dirPath = self.pathToTree + hashDir
+        print(dirPath)
         os.makedirs(dirPath)
         output = open(os.path.join(dirPath, hashName), 'wb')
 
@@ -34,3 +35,6 @@ class Tree:
         Show file in the data tree
         '''
         print(pathFile)
+
+tr = Tree()
+tr.insert()
