@@ -1,30 +1,29 @@
 """
 Tree library
-
 """
 
 import os
-import sys
-import random
-import hashlib
+
+from .Helpers import hash_to_path, hash_name
 
 class Tree:
 
     def __init__(self, pathToTree=None):
 
         if not pathToTree:
-            self.pathToTree = os.path.dirname(os.path.abspath(__file__))
+            raise ValueError('Path to tree must be inizialize')
+        self.pathToTree = pathToTree
     
     def insert(self, fileByte):
         '''
         Insert file to the data tree
         '''
-        hashName = hashlib.sha256(bytes(int(random.random()*100000))).hexdigest()
+        hashName = hash_name()
         hashDir = hash_to_path(hashName)
-        dirPath = self.pathToTree + hashDir
-        os.makedirs(dirPath)
-        with open(os.path.join(dirPath, hashName), 'wb') as fileHash:
-            fileHash.write(file_byte)
+        pathHash = self.pathToTree + hashDir
+        os.makedirs(pathHash)
+        with open(os.path.join(pathHash, hashName), 'wb') as fileHash:
+            fileHash.write(fileByte)
 
     def update(self, fileHash, fileByte):
         '''
