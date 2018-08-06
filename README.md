@@ -1,6 +1,6 @@
 # Tree
 
-![root](https://github.com//valeriiduz/tree/blob/master/TREE.jpg?raw=true)
+![root](https://github.com/valeriiduz/Tree/blob/master/documentation/TREE.jpg?raw=true)
 
 ## License
 
