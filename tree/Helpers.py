@@ -1,20 +1,19 @@
-'''
+"""
 Split helpers function for the Tree library
-'''
+"""
 
-import os
-import sys
 import random
 import hashlib
 
 
-def hash_to_path(hashName=None):
-    '''
+def hash_to_path(hash_name):
+    """
     Convert hashName to directory path
-    '''
-    dirPath = ''.join([f'{symbol}/' if idx % 2 else f'{symbol}' for idx, symbol in enumerate(hashName)])[:-1]
-    return dirPath
-
+    :param hash_name:
+    :return:
+    """
+    path = ''.join([f'{symbol}/' if idx % 2 else f'{symbol}' for idx, symbol in enumerate(hash_name)])[:-1]
+    return path
 
 
 def hash_name():

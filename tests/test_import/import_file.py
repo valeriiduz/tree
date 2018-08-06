@@ -1,7 +1,7 @@
 import tornado.httpserver, tornado.ioloop, tornado.options, tornado.web, os.path, random, string
 from tornado.options import define, options
 
-from source.Tree import Tree
+from tree.Tree import Tree
 
 define("port", default=8888, help="run on the given port", type=int)
 
