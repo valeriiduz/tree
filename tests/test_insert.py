@@ -28,3 +28,4 @@ class InsertTest(TestCase):
         LCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="""
         status_insert = self.tree.insert(base)
         self.assertEqual(status_insert, 396)
+        self.assertEqual(len(self.tree.file_hash_name), 64)
