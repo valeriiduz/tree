@@ -9,7 +9,7 @@ from unittest import TestCase
 from tree.Tree import TreeStorage
 
 
-class RemoveTest(TestCase):
+class ReadTest(TestCase):
 
     def setUp(self):
         self.tree = TreeStorage(os.path.dirname(os.path.abspath(__file__)) + "/storage/")
