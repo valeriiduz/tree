@@ -20,7 +20,7 @@ class InsertTest(TestCase):
 
     def test_insert_simple_picture(self):
         """
-
+        Test upload simple picture
         """
         file = io.BytesIO()
         image = Image.new('RGBA', size=(100, 100), color=(155, 0, 0))

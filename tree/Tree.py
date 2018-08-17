@@ -1,11 +1,5 @@
-"""
-Tree library
-"""
-
 import os
-import shutil
-
-from .Helpers import hash_to_path, hash_name
+from .Helpers import hash_to_path, hash_name_generator
 
 
 class TreeStorage:
@@ -29,7 +23,7 @@ class TreeStorage:
         """
         Insert file to the data tree storage
         """
-        self.file_hash_name = hash_name()
+        self.file_hash_name = hash_name_generator()
         hash_dir = hash_to_path(hash_name=self.file_hash_name)
         path_hash = self.path_to_tree + hash_dir
         os.makedirs(path_hash)
@@ -44,7 +38,7 @@ class TreeStorage:
         hash_dir = hash_to_path(hash_name=file_hash_name)
         with open(os.path.join(self.path_to_tree, hash_dir,
                                file_hash_name), mode=mode) as file_hash:
-            file_hash.write(file_byte)
+            return file_hash.write(file_byte)
 
     def remove(self, file_hash_name):
         """
@@ -52,7 +46,7 @@ class TreeStorage:
         """
         path_hash = hash_to_path(hash_name=file_hash_name)
         path = os.path.join(self.path_to_tree, path_hash, file_hash_name)
-        shutil.rmtree(path)
+        return os.remove(path)
 
     def show(self, file_hash_name):
         """
@@ -60,4 +54,3 @@ class TreeStorage:
         """
         path_hash = hash_to_path(hash_name=file_hash_name)
         return os.path.join(self.path_to_tree, path_hash, file_hash_name)
-

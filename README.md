@@ -10,6 +10,14 @@ For preservation it is enough to you to transfer a binary code of the file and t
 
 ![Tree image](https://raw.githubusercontent.com/valeriiduz/Tree/master/docs/_static/tree.jpg)
 
+## Installing
+
+Install and Update Tree library using pip:
+
+```bash
+pip install tree-storage
+```
+
 ## License
 
 This repository is distributed under The MIT license

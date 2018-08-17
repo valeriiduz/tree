@@ -1,10 +1,12 @@
 """
 
 """
-
+import io
 import os
 import shutil
 from unittest import TestCase
+
+from PIL import Image
 
 from tree.Tree import TreeStorage
 
@@ -16,3 +18,13 @@ class RemoveTest(TestCase):
 
     def tearDown(self):
         shutil.rmtree(self.tree.path_to_tree)
+
+    def test_remove_simple_file(self):
+        file = io.BytesIO()
+        image = Image.new('RGBA', size=(100, 100), color=(155, 0, 0))
+        image.save(file, 'png')
+        file.name = 'test.png'
+        file.seek(0)
+        self.tree.insert(file.read())
+        status_remove = self.tree.remove(self.tree.file_hash_name)
+        self.assertEqual(status_remove, None)
