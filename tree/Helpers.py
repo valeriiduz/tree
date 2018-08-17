@@ -12,10 +12,8 @@ def hash_to_path(hash_name):
     :param hash_name:
     :return:
     """
-    path = ''.join([f'{symbol}/' if idx % 2 else f'{symbol}' for idx, symbol in enumerate(hash_name)])[:-1]
-    return path
+    return ''.join([f'{symbol}/' if idx % 2 else f'{symbol}' for idx, symbol in enumerate(hash_name)])[:-1]
 
 
 def hash_name():
-    hash = hashlib.sha256(bytes(int(random.random()*100000))).hexdigest()
-    return hash
+    return hashlib.sha256(bytes(int(random.random()*100000))).hexdigest()

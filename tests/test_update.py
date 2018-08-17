@@ -16,3 +16,6 @@ class UpdateTest(TestCase):
 
     def tearDown(self):
         shutil.rmtree(self.tree.path_to_tree)
+
+    def update_picture_to_file(self):
+        pass
