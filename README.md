@@ -13,7 +13,7 @@ For preservation it is enough to you to transfer a binary code of the file and t
 
 ## Example
 
-
+Superficial uses of CRUD functions in the tree hash storage
 ```python
 from tree.Tree import TreeStorage
 
@@ -69,6 +69,10 @@ python setup.py install
 
 (In all cases, add --user to the install command to install in the current user's home directory.)
 Install and Update Tree library using pip:
+
+## Documentation
+
+Read full documentation on [https://tree.readthedocs.io/](https://tree.readthedocs.io/).
 
 ## License
 
