@@ -7,7 +7,7 @@ import shutil
 from unittest import TestCase
 from PIL import Image
 
-from tree.Tree import TreeStorage
+from tree import TreeStorage
 
 
 class InsertTest(TestCase):
@@ -27,5 +27,5 @@ class InsertTest(TestCase):
         image.save(file, 'png')
         file.name = 'test.png'
         file.seek(0)
-        status_insert = self.tree.insert(file.read())
+        status_insert = self.tree.breed(file.read())
         self.assertEqual(status_insert, 315)

@@ -9,16 +9,12 @@ Tree hash storage
 
 import sys
 
+from .tree import TreeStorage
+from .utils import *
+
 if sys.version_info.major < 3:
     raise RuntimeError(
         'Tree does not support Python 2.x. '
         'Please use Python 3.')
 
-VERSION = '0.0.1'
-VERSION_STRING = 'Tree %s (https://tree.readthedocs.io/)' % VERSION
-
-__version__ = VERSION
-__all__ = ['VERSION']
-
-
-from .Tree import (TreeStorage)
+__all__ = ['TreeStorage']

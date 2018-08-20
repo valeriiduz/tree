@@ -8,7 +8,7 @@ from unittest import TestCase
 
 from PIL import Image
 
-from tree.Tree import TreeStorage
+from tree import TreeStorage
 
 
 class RemoveTest(TestCase):
@@ -25,6 +25,6 @@ class RemoveTest(TestCase):
         image.save(file, 'png')
         file.name = 'test.png'
         file.seek(0)
-        self.tree.insert(file.read())
-        status_remove = self.tree.remove(self.tree.file_hash_name)
+        self.tree.breed(file.read())
+        status_remove = self.tree.cut(self.tree.file_hash_name)
         self.assertEqual(status_remove, None)

@@ -13,36 +13,23 @@ For preservation it is enough to you to transfer a binary code of the file and t
 
 ## Example
 
-Superficial uses of CRUD functions in the tree hash storage
+Superficial uses in the tree hash storage
 ```python
-from tree.Tree import TreeStorage
+from tree import TreeStorage
 
 tree = TreeStorage("/path/to/storage")
 
-# For add file to the Tree storage
-# after add file, insert method return status of
-# writing in the tree. If add file status is success,
-# tree save last file hash name in the attribute file_hash_name
+# If you want add file to the Tree Storage
 with open("/path/to/file", "rb") as file:
-    tree.insert(file.read())
+    tree.breed(file_byte=file.read(), mode='wb')
+# after add file, method return status of writing. 
+# If add file status is success, tree save last 
+# hash of the file in the attribute file_hash_name
 
-# View full path to file in the storage 
-# you can call show method and paste hash name 
-# of file which you search
-tree.show(tree.file_hash_name)
-
-# if you have to update the existing file
-# simple call update method and write in 
-# arguments hash name of the file which 
-# you have to update and blob of new file
-with open("/path/to/second_file", "rb") as file:
-    tree.update(tree.file_hash_name, file.read())
-    
-# Remove file from the Tree Storage
-# you can call remove method and past 
+# For remove file from the Tree Storage
+# you can call cut method and past 
 # to him hash name of file which you have delete
-tree.remove(tree.file_hash_name)
-
+tree.cut(file_hash_name=tree.file_hash_name, greedy=True)
 ```
 
 ## Installing
