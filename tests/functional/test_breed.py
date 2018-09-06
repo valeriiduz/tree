@@ -1,22 +1,27 @@
 """
 
 """
+
 import io
 import os
 import shutil
 from unittest import TestCase
 from PIL import Image
 
-from tree import TreeStorage
+from tree.tree import TreeStorage
+from tree.config import TreeConfig
 
 
-class InsertTest(TestCase):
+class TreeBreedTest(TestCase):
 
     def setUp(self):
-        self.tree = TreeStorage(os.path.dirname(os.path.abspath(__file__)) + "/storage/")
+        self.config = TreeConfig({
+            "PATH_TO_TREE": os.path.dirname(os.path.abspath(__file__)) + "/storage/"
+        })
+        self.tree = TreeStorage(config=self.config)
 
     def tearDown(self):
-        shutil.rmtree(self.tree.path_to_tree)
+        shutil.rmtree(self.config.PATH_TO_TREE)
 
     def test_insert_simple_picture(self):
         """

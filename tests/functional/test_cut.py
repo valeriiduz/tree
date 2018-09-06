@@ -8,16 +8,21 @@ from unittest import TestCase
 
 from PIL import Image
 
-from tree import TreeStorage
+from tree.tree import TreeStorage
+from tree.utils import hash_name_generator
+from tree.config import TreeConfig
 
 
-class RemoveTest(TestCase):
+class TreeCutTest(TestCase):
 
     def setUp(self):
-        self.tree = TreeStorage(os.path.dirname(os.path.abspath(__file__)) + "/storage/")
+        self.config = TreeConfig({
+            "PATH_TO_TREE": os.path.dirname(os.path.abspath(__file__)) + "/storage/"
+        })
+        self.tree = TreeStorage(config=self.config)
 
     def tearDown(self):
-        shutil.rmtree(self.tree.path_to_tree)
+        shutil.rmtree(self.config.PATH_TO_TREE)
 
     def test_remove_simple_file(self):
         file = io.BytesIO()
@@ -28,3 +33,6 @@ class RemoveTest(TestCase):
         self.tree.breed(file.read())
         status_remove = self.tree.cut(self.tree.file_hash_name)
         self.assertEqual(status_remove, None)
+
+    def test_cut_non_exist_file(self):
+        self.assertNotEqual(self.tree.cut(hash_name_generator()), None)

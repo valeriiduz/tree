@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="tree-storage",
-    version="0.0.11",
+    version="0.0.12",
     author="Valerii Duz",
     author_email="duz.valera.od@ex.ua",
     description="Tree hash-storage for files",
