@@ -1,6 +1,5 @@
 # Tree
 
-[![Build status](https://ci.appveyor.com/api/projects/status/q3qla5acuod7opsc/branch/master?svg=true)](https://ci.appveyor.com/project/valeriiduz/tree/branch/master)
 [![Build Status](https://travis-ci.org/valeriiduz/Tree.svg?branch=master)](https://travis-ci.org/valeriiduz/Tree)
 [![Build s](https://readthedocs.org/projects/tree/badge/?version=latest)]()
 
@@ -15,9 +14,15 @@ For preservation it is enough to you to transfer a binary code of the file and t
 
 Superficial uses in the tree hash storage
 ```python
-from tree import TreeStorage
+from tree.tree import TreeStorage
+from tree.config import TreeConfig
 
-tree = TreeStorage("/path/to/storage")
+# Initialize config for the TreeStorage
+config = TreeConfig({
+    "PATH_TO_TREE": "/path/to/storage"
+})
+
+tree = TreeStorage(config)
 
 # If you want add file to the Tree Storage
 with open("/path/to/file", "rb") as file:

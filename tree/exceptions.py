@@ -3,7 +3,7 @@
 """
 
 
-class TreeConfigNotExist(Exception):
+class TreeConfigNoneExist(Exception):
     """
     Error class if storage initialize without config parameter
     """
@@ -11,7 +11,7 @@ class TreeConfigNotExist(Exception):
         self.args = "Storage initialize must be have a config variable"
 
 
-class TreeFileNonExist(FileNotFoundError):
+class TreeFileNoneExist(FileNotFoundError):
     """
     Error class if hash non exist in tree storage
     """

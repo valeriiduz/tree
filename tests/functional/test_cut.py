@@ -1,5 +1,5 @@
 """
-
+Testing delete file from storage
 """
 import io
 import os

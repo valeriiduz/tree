@@ -1,7 +1,10 @@
+"""
+
+"""
 import os
 
-from tree.exceptions import TreeConfigNotExist,\
-    TreeFileNonExist
+from tree.exceptions import TreeConfigNoneExist,\
+    TreeFileNoneExist
 from .utils import hash_to_path,\
     hashing_file
 
@@ -17,7 +20,7 @@ class TreeStorage:
         must be initialize TreeConfig
         """
         if not config:
-            raise TreeConfigNotExist
+            raise TreeConfigNoneExist
         self.config = config
         self.file_hash_name = ''
 
@@ -45,5 +48,5 @@ class TreeStorage:
             hash_dir, hash_file = hash_to_path(hash_name=file_hash_name)
             path = os.path.join(self.config.PATH_TO_TREE, hash_dir, hash_file)
             return os.remove(path)
-        except TreeFileNonExist(file_hash_name=file_hash_name) as error:
+        except TreeFileNoneExist(file_hash_name=file_hash_name) as error:
             return error.msg
