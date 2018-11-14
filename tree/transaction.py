@@ -2,25 +2,23 @@
 
 """
 
-from copy import copy
-from copy import deepcopy
 
-
-class Transaction(object):
-    """A transaction guard.
-    This is, in fact, just syntactic sugar around a memento closure.
+class Transaction:
     """
-    deep = False
+    """
     state = None
 
-    def commit(self, deep, obj):
-        self.state = deepcopy(obj.__dict__) if deep else copy(obj.__dict__)
+    def commit(self, obj):
+        """
 
-        def restore():
-            obj.__dict__.clear()
-            obj.__dict__.update(self.state)
-
-        return restore
+        :param obj:
+        :return:
+        """
+        self.state = obj
 
     def rollback(self):
+        """
+
+        :return:
+        """
         return self.state

@@ -4,6 +4,9 @@ Setting config for storage
 
 
 class TreeConfig:
+    """
+    Class for initialize config params
+    """
 
     def __init__(self, params=None, **kwargs):
 

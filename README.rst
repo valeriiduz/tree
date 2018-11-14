@@ -5,7 +5,7 @@
 
 ## Overview
 
-Tree - it the library for who wants to save a large number of files.
+Tree the library for saving a large number of files.
 For preservation it is enough to you to transfer a binary code of the file and the Tree will keep him.
 
 ![Tree image](https://raw.githubusercontent.com/valeriiduz/Tree/master/docs/_static/tree.jpg)

@@ -1,14 +1,14 @@
 """
-
+Collection custom exception
 """
 
 
 class TreeConfigNoneExist(Exception):
     """
-    Error class if storage initialize without config parameter
+    Error class if storage initializing  without config parameter
     """
     def __init__(self):
-        self.args = "Storage initialize must be have a config variable"
+        self.msg = "Storage initialize must be have a config variable"
 
 
 class TreeFileNoneExist(FileNotFoundError):
