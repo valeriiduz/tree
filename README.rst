@@ -53,7 +53,7 @@ Installing
 
 .. image:: https://img.shields.io/pypi/pyversions/tree-storage.svg
    :alt: Python Version
-   
+
 .. image:: https://img.shields.io/pypi/v/tree-storage.svg
    :alt: Project Version
 
@@ -78,7 +78,7 @@ Install and Update Tree library using pip:
 Documentation
 ~~~~~~~~~~~~~
 
-Read full documentation on [https://tree.readthedocs.io/](https://tree.readthedocs.io/).
+Read full documentation on `https://tree.readthedocs.io/ <https://tree.readthedocs.io/>`_.
 
 License
 ~~~~~~~
