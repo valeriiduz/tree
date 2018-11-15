@@ -53,9 +53,11 @@ Installing
 
 .. image:: https://img.shields.io/pypi/pyversions/tree-storage.svg
    :alt: Python Version
+   :target: https://img.shields.io/pypi/pyversions/tree-storage.svg
 
 .. image:: https://img.shields.io/pypi/v/tree-storage.svg
    :alt: Project Version
+   :target: https://img.shields.io/pypi/v/tree-storage.svg
 
 PyPy and PyPy3 are also supported (and tested against).
 
