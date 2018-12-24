@@ -15,12 +15,6 @@ Overview
 Tree the library for saving a large number of files.
 For preservation it is enough to you to transfer a binary code of the file and the Tree will keep him.
 
-.. image:: https://raw.githubusercontent.com/valeriiduz/Tree/master/docs/_static/tree.jpg
-   :height: 100
-   :width: 200
-   :scale: 50
-   :alt: Tree image
-
 Example
 ~~~~~~~
 

@@ -8,14 +8,11 @@ git:
 matrix:
   include:
     - os: linux
-      python: 3.6
-    - os: osx
-      language: generic
-      env: PYTHON_VERSION=3
+      python: 3
 
 install:
   - pip$PYTHON_VERSION install --upgrade setuptools
   - pip$PYTHON_VERSION install --upgrade -e.[test]
 
 script:
-- python$PYTHON_VERSION setup.py test
+  - python$PYTHON_VERSION setup.py test
