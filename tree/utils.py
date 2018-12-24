@@ -12,7 +12,9 @@ def slice_hash(func):
     """
     def _(*args, **kwargs):
         hash_path = func(*args, **kwargs)
-        return hash_path[:-3], hash_path[-3:-1]
+        directory_path = hash_path[:-3]
+        file_name = hash_path[-3:-1]
+        return directory_path, file_name
     return _
 
 
@@ -26,14 +28,14 @@ def hash_to_path(hash_name=''):
 
 def hashing_file(file_byte=b'', algorithm='sha256'):
     """
-    Hashing file from file bytes
+    Hashing file by file bytes
     """
     return getattr(hashlib, algorithm)(file_byte).hexdigest()
 
 
 def hash_name_generator(algorithm="sha256"):
     """
-    Generating hash name from random bytes
+    Generating hash name by random bytes
     """
     random_bytes = bytes(int(random.random()*100000))
     return getattr(hashlib, algorithm)(random_bytes).hexdigest()

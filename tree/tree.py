@@ -1,12 +1,13 @@
-"""
-
-"""
 import os
 
-from tree.exceptions import TreeConfigNoneExist,\
-    TreeFileNoneExist
-from .utils import hash_to_path,\
-    hashing_file
+from tree.exceptions import (
+    TreeConfigNoneExist,
+    TreeFileNoneExist,
+)
+from .utils import (
+    hash_to_path,
+    hashing_file,
+)
 
 
 class TreeStorage:
