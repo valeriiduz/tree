@@ -4,12 +4,14 @@ Split helpers function for the Tree library
 
 import random
 import hashlib
+from functools import wraps
 
 
 def slice_hash(func):
     """
     Slice hash path to the dir path and file name
     """
+    @wraps(func)
     def _(*args, **kwargs):
         hash_path = func(*args, **kwargs)
         directory_path = hash_path[:-3]

@@ -10,19 +10,18 @@ from PIL import Image
 
 from tree.tree import TreeStorage
 from tree.utils import hash_name_generator
-from tree.config import TreeConfig
 
 
 class TreeCutTest(TestCase):
 
+    path = os.path.dirname(os.path.abspath(__file__)) + "/storage/"
+
     def setUp(self):
-        self.config = TreeConfig({
-            "PATH_TO_TREE": os.path.dirname(os.path.abspath(__file__)) + "/storage/"
-        })
-        self.tree = TreeStorage(config=self.config)
+        self.tree = TreeStorage(path=self.path)
 
     def tearDown(self):
-        shutil.rmtree(self.config.PATH_TO_TREE)
+        if os.path.isfile(self.path):
+            shutil.rmtree(self.path)
 
     def test_remove_simple_file(self):
         file = io.BytesIO()
@@ -35,4 +34,4 @@ class TreeCutTest(TestCase):
         self.assertEqual(status_remove, None)
 
     def test_cut_non_exist_file(self):
-        self.assertNotEqual(self.tree.cut(hash_name_generator()), None)
+        self.assertEqual(self.tree.cut(hash_name_generator()), None)

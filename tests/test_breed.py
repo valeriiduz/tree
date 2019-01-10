@@ -9,19 +9,17 @@ from unittest import TestCase
 from PIL import Image
 
 from tree.tree import TreeStorage
-from tree.config import TreeConfig
 
 
 class TreeBreedTest(TestCase):
 
+    path = os.path.dirname(os.path.abspath(__file__)) + "/storage/"
+
     def setUp(self):
-        self.config = TreeConfig({
-            "PATH_TO_TREE": os.path.dirname(os.path.abspath(__file__)) + "/storage/"
-        })
-        self.tree = TreeStorage(config=self.config)
+        self.tree = TreeStorage(path=self.path)
 
     def tearDown(self):
-        shutil.rmtree(self.config.PATH_TO_TREE)
+        shutil.rmtree(self.path)
 
     def test_insert_simple_picture(self):
         """

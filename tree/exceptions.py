@@ -3,7 +3,7 @@ Collection custom exception
 """
 
 
-class TreeConfigNoneExist(Exception):
+class TreeDirNoneExist(Exception):
     """
     Error class if storage initializing  without config parameter
     """
