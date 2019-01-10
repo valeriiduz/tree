@@ -8,8 +8,8 @@ from unittest import TestCase
 
 from PIL import Image
 
-from tree.tree import TreeStorage
-from tree.utils import hash_name_generator
+from tree_storage.tree import TreeStorage
+from tree_storage.utils import hash_name_generator
 
 
 class TreeCutTest(TestCase):

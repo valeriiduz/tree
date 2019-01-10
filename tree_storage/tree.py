@@ -1,29 +1,27 @@
 import os
 
-from tree.exceptions import (
-    TreeFileNoneExist,
-    TreeDirNoneExist,
-)
-from tree.utils import (
-    hash_to_path,
-    hashing_file,
-)
+from tree_storage.exceptions import TreeDirNoneExist
+from tree_storage.utils import hash_to_path, hashing_file
 
 
 class TreeStorage:
     """
-    Main object for the manipulate of the tree storage
+    Main object for manipulate of the storage
     """
 
-    def __init__(self, path=None):
+    file_hash_name = None
+    full_path_to_file = None
+    hash_dir = None
+    hash_file = None
+
+    def __init__(self, path):
         """
         When initialize TreeStorage client
-        must be initialize TreeConfig
+        must be write path where want to save files
         """
         self.path_to_tree = path
         if not self.path_to_tree:
             raise TreeDirNoneExist
-        self.file_hash_name = ''
 
     def breed(self, file_byte, mode='wb'):
         """
@@ -31,11 +29,12 @@ class TreeStorage:
         """
         try:
             self.file_hash_name = hashing_file(file_byte)
-            hash_dir, hash_file = hash_to_path(hash_name=self.file_hash_name)
-            os.makedirs(os.path.join(self.path_to_tree, hash_dir))
-            with open(os.path.join(self.path_to_tree, hash_dir, hash_file),
-                      mode=mode) as file_hash:
-                return file_hash.write(file_byte)
+            self.hash_dir, self.hash_file = hash_to_path(hash_name=self.file_hash_name)
+            os.makedirs(os.path.join(self.path_to_tree, self.hash_dir))
+            self.full_path_to_file = os.path.join(self.path_to_tree, self.hash_dir, self.hash_file)
+            with open(self.full_path_to_file, mode=mode) as file_hash:
+                file_hash.write(file_byte)
+                return self.file_hash_name
         except IOError as error:
             return error.filename
 

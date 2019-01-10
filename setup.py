@@ -5,14 +5,16 @@ with open("README.rst", "r") as fh:
 
 setuptools.setup(
     name="tree-storage",
-    version="0.0.12",
+    version="0.1.10",
     author="Valerii Duz",
     author_email="duz.valera.od@ex.ua",
-    description="Tree hash-storage for files",
+    description="Tree hash-storage files",
     long_description=long_description,
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/x-rst",
     packages=setuptools.find_packages(),
     classifiers=(
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",

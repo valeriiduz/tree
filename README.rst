@@ -12,7 +12,7 @@ Tree
 Overview
 ~~~~~~~~
 
-Tree the library for saving a large number of files.
+Tree the library for saving many files by they hash.
 For preservation it is enough to you to transfer a binary code of the file and the Tree will keep him.
 
 Example
@@ -20,25 +20,20 @@ Example
 
 Superficial uses in the tree hash storage
 ::
-    from tree.tree import TreeStorage
-    from tree.config import TreeConfig
 
-    # Initialize config for the TreeStorage
-    config = TreeConfig({
-        "PATH_TO_TREE": "/path/to/storage"
-    })
+    from tree_storage import TreeStorage
 
-    tree = TreeStorage(config)
+    tree = TreeStorage(path="/path/to/storage")
 
     # If you want add file to the Tree Storage
     with open("/path/to/file", "rb") as file:
         tree.breed(file_byte=file.read(), mode='wb')
-    # after add file, method return status of writing. 
-    # If add file status is success, tree save last 
+    # after add file, method return status of writing.
+    # If add file status is success, tree save last
     # hash of the file in the attribute file_hash_name
 
     # For remove file from the Tree Storage
-    # you can call cut method and past 
+    # you can call cut method and past
     # to him hash name of file which you have delete
     tree.cut(file_hash_name=tree.file_hash_name, greedy=True)
 
@@ -53,18 +48,20 @@ Installing
    :alt: Project Version
    :target: https://img.shields.io/pypi/v/tree-storage.svg
 
-PyPy and PyPy3 are also supported (and tested against).
 
 Download and install the latest released version from PyPI:
 ::
+
     pip install tree-storage
 
 Download and install the development version from GitHub:
 ::
+
     pip install git+https://github.com/valeriiduz/Tree
 
 Installing from source (installs the version in the current working directory):
 ::
+
     python setup.py install
 
 
