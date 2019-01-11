@@ -5,7 +5,7 @@ with open("README.rst", "r") as fh:
 
 setuptools.setup(
     name="tree-storage",
-    version="0.1.10",
+    version="0.1.11",
     author="Valerii Duz",
     author_email="duz.valera.od@ex.ua",
     description="Tree hash-storage files",

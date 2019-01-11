@@ -19,7 +19,8 @@ class TreeBreedTest(TestCase):
         self.tree = TreeStorage(path=self.path)
 
     def tearDown(self):
-        shutil.rmtree(self.path)
+        if os.path.isfile(self.path):
+            shutil.rmtree(self.path)
 
     def test_insert_simple_picture(self):
         """
